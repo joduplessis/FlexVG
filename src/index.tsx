@@ -94,5 +94,3 @@ export class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> {
         return <img src={"data:image/svg+xml;base64,"+this.state.contents} width={this.props.width} height={this.props.height}/>;
     }
 }
-
-// ReactDOM.render(<FlexVG src="/demo.svg" width={500} height={500} color="red"/>, document.getElementById('app'));
