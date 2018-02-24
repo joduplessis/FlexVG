@@ -1,0 +1,31 @@
+{
+  "name": "h-queue",
+  "version": "1.0.0",
+  "description": "An easy to use chat component for React.",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "serve": "node ./node_modules/live-server/live-server.js --mount=/:./dist --host=localhost --port:8000",
+    "dev": "npm run watch | npm run serve"
+  },
+  "repository": "https://github.com/joduplessis/h-queue.git",
+  "author": "Jo du Plessis",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.0.38",
+    "@types/react-dom": "^16.0.4",
+    "live-server": "^1.2.0"
+  },
+  "devDependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-commonjs": "^8.2.1",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
+    "typescript": "^2.5.2"
+  }
+}
