@@ -1,4 +1,4 @@
-# H-Queue
-## An easy to use chat component for React.
+# FlexVG
+## React component for using SVG images with customisable fill colours.
 
 TBC
