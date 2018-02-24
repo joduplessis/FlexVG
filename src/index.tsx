@@ -1,18 +1,24 @@
 import * as React from "react";
 import * as ReactDOM from 'react-dom';
 
-interface IFlexVGProps {
+export interface IFlexVGProps {
     src: string;
     width: number;
     height: number;
     color: string;
 }
 
-interface IFlexVGState {
+export interface IFlexVGState {
     contents: any;
 }
 
-export default class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> {
+declare const window: {
+    [key: string]: any; // missing index TS defintion (adding it manually because of error)
+    prototype: Window;
+    new(): Window;
+};
+
+export class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> {
     constructor(props: any) {
         super(props);
 
@@ -34,23 +40,23 @@ export default class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> 
             if (this.readyState == 4) {
 
                 // Get the RAW content
-                const rawSVG = client.responseText;
+                const rawSVG: string = client.responseText;
 
                 // Remove all orccurences of the "fill" attribute
-                let rawSVGNoFill = rawSVG.replace(/fill="#([0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F])"/gi, '');
+                let rawSVGNoFill: string = rawSVG.replace(/fill="#([0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F][0-9A-F])"/gi, '');
 
                 // Remove all XML header tags
                 rawSVGNoFill = rawSVGNoFill.replace(/\<(\?xml|(\!DOCTYPE[^\>\[]+(\[[^\]]+)?))+[^>]+\>/g, '');
 
                 // Create a new document parser
                 // We will use this to inject styles into it
-                const parser = new DOMParser();
+                const parser: any = new DOMParser();
 
-                // Creat the document
-                const doc = parser.parseFromString(rawSVGNoFill, "text/xml");
+                // Create the document
+                const doc: any = parser.parseFromString(rawSVGNoFill, "text/xml");
 
                 // Create a new style node for our fill colors
-                var styleNode = document.createElement('style');
+                const styleNode: any = document.createElement('style');
 
                 // Set the type
                 styleNode.type = "text/css";
@@ -67,13 +73,13 @@ export default class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> 
                 doc.firstChild.firstChild.parentNode.insertBefore(styleNode, doc.firstChild.firstChild);
 
                 // For converting the nodes to plain text
-                var serializer = new XMLSerializer();
+                const serializer: any = new XMLSerializer();
 
                 // Do it!
-                const processedRawSVG = serializer.serializeToString(doc);
+                const processedRawSVG: string = serializer.serializeToString(doc);
 
                 // Convert it now to Base64 to use for our image tag
-                const base64SVG = window.btoa(processedRawSVG);
+                const base64SVG: string = window.btoa(processedRawSVG);
 
                 // Updated the contents of the file
                 context.setState({ contents: base64SVG });
@@ -85,9 +91,7 @@ export default class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> 
     }
 
     public render() {
-        return (
-            <img src={"data:image/svg+xml;base64,"+this.state.contents} width={this.props.width} height={this.props.height}/>
-        )
+        return <img src={"data:image/svg+xml;base64,"+this.state.contents} width={this.props.width} height={this.props.height}/>;
     }
 }
 
