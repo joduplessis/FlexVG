@@ -10,8 +10,9 @@ module.exports = {
     input: 'src/index.tsx',
     output: {
      file: 'dist/flexvg.js',
-     format: 'iife',
-     name: 'flexvg',
+     format: 'umd',
+     name: 'FlexVG',
+     sourcemap: true,
     },
     plugins: [
       replace({
