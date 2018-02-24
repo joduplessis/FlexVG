@@ -91,4 +91,4 @@ export default class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> 
     }
 }
 
-ReactDOM.render(<FlexVG src="/demo.svg" width={500} height={500} color="red"/>, document.getElementById('app'));
+// ReactDOM.render(<FlexVG src="/demo.svg" width={500} height={500} color="red"/>, document.getElementById('app'));
