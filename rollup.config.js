@@ -9,9 +9,9 @@ var buble = require('rollup-plugin-buble');
 module.exports = {
     input: 'src/index.tsx',
     output: {
-     file: 'dist/index.js',
+     file: 'dist/flexvg.js',
      format: 'iife',
-     name: 'hqueue',
+     name: 'flexvg',
     },
     plugins: [
       replace({

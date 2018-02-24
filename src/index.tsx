@@ -18,7 +18,7 @@ export default class FlexVG extends React.Component<IFlexVGProps, IFlexVGState> 
 
         this.state = {
             contents: '',
-        }
+        };
     }
 
     public componentDidMount() {

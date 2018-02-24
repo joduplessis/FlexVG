@@ -1,14 +1,15 @@
 {
-  "name": "h-queue",
+  "name": "flexvg",
   "version": "1.0.0",
-  "description": "An easy to use chat component for React.",
+  "description": "React component for using SVG images with customisable fill colours.",
+  "main": "dist/flexvg.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "serve": "node ./node_modules/live-server/live-server.js --mount=/:./dist --host=localhost --port:8000",
     "dev": "npm run watch | npm run serve"
   },
-  "repository": "https://github.com/joduplessis/h-queue.git",
+  "repository": "https://github.com/joduplessis/FlexVG",
   "author": "Jo du Plessis",
   "license": "MIT",
   "dependencies": {
