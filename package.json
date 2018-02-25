@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React component for using SVG images with customisable fill colours.",
   "main": "dist/flexvg.js",
-  "types": "./lib/flexvg.d.ts",
+  "types": "./dist/flexvg.d.ts",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
